@@ -1,0 +1,5 @@
+Host gitlab.ngosolucoes.com 
+         Hostname gitlab.ngosolucoes.com 
+         User git 
+         IdentityFile ~/.ssh/id_rsa
+         Port 2222

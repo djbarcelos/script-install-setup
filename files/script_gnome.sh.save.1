@@ -1,0 +1,70 @@
+#!/bin/bash
+
+installWallpaper () {
+clear
+echo "-------------------------------------------"
+echo "|              Wallpapers                 |"
+echo "-------------------------------------------"
+echo "|    1 - Catalina			      |"
+echo "-------------------------------------------"
+echo -n "opção: "
+read check
+case $check in
+	) 
+	cd files/Data/img
+	wallpaper_path=/home/usu
+	wallpaper = ()
+	gsettings set org.gnome.desktop.background picture-uri file:///home/usuario/Downloads/MyScripts/files/Data/img/wallpaperCatalina.jpg ;;
+	*) clear; exit ;;
+esac
+}
+
+installPlugs () {
+clear
+echo "-------------------------------------------"
+echo "|                  Plugs                  |"
+echo "-------------------------------------------"
+echo -n "Instalar Plugs no GNOME [Y/N]: "
+read check
+case $check in
+	y|Y) sudo add-apt-repository universe
+	sudo apt install gnome-tweak-tool
+	installWallpaper ;;
+	n|N) installWallpaper ;;
+esac
+}
+
+installTweak () {
+clear
+echo -n "Instalar Ajustes do GNOME [Y/N]: "
+read check
+case $check in
+	y|Y) sudo apt install gnome-shell-extension-dash-to-panel
+	sudo apt install $(apt search gnome-shell-extension | grep ^gnome | cut -d / -f1) 
+	installPlugs;;
+	n|N) installWallpaper ;;
+esac
+}
+
+installGnome () {
+clear
+echo "-------------------------------------------"
+echo "|                  GNOME                  |"
+echo "-------------------------------------------"
+sudo apt install gnome-session
+installTweak
+}
+
+
+main () {
+clear
+echo -n "Pular Instalação do GNOME-SESSION [Y/N]: "
+read check
+case $check in
+	y|Y) installWallpaper ;;
+	n|N) installGnome ;;
+esac
+echo "instalação concluida..."
+read a
+}
+main
