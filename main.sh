@@ -47,6 +47,7 @@ echo "|  6. Node JS			          |"
 echo "|  7. NoSQL			          |"
 echo "|  8. NVM - NPM - YARN                    |"
 echo "|  9. TypeScript 			  |"
+echo "|  10. Postman 			  |"
 echo "|  a. Ionic - Cordova 			  |"
 echo "|  s. Angular 			  	  |"
 echo "|  d. Nginx 				  |"
@@ -75,6 +76,8 @@ case $OPC in
 	8) Nvm
 	customInstallation;;
 	9) TypeScript
+	customInstallation;;
+	10) Postman
 	customInstallation;;
 	a|A) Ionic
 	customInstallation;;
@@ -130,6 +133,10 @@ clear
 TypeScript () {
 clear
 	sh ./files/script_typeScript.sh
+}
+Postman () {
+clear
+	sh ./files/script_postman.sh
 }
 Ionic () {
 clear
